@@ -1,0 +1,233 @@
+// Character & NPC definitions (data-driven). All characters are original and fictional.
+// look: appearance params consumed by ui/chibi.js
+// schedule[chapter] = locationId | [morning, afternoon, evening]  (null = absent)
+// pos[locationId] = [x, y] in scene logical coordinates (390×640)
+
+export const PLAYER_LOOK = {
+  child: { skin: '#ffe3d3', hair: '#6b4232', hairStyle: 'twin', outfit: '#f7b6c8', outfit2: '#fff4f7', type: 'dress', acc: 'bow', accColor: '#f08fb0', scale: 0.82 },
+  uni: { skin: '#ffe3d3', hair: '#6b4232', hairStyle: 'ponytail', outfit: '#c9b8ec', outfit2: '#fffaf0', type: 'hoodie', acc: 'bow', accColor: '#f08fb0', scale: 0.95 },
+  intern: { skin: '#ffe3d3', hair: '#6b4232', hairStyle: 'long', outfit: '#3f4a6b', outfit2: '#fff', type: 'suit', acc: 'pin', accColor: '#e6c36a', scale: 1 },
+  career: { skin: '#ffe3d3', hair: '#6b4232', hairStyle: 'bun', outfit: '#b9a3e3', outfit2: '#fffaf0', type: 'blazer', acc: 'pin', accColor: '#e6c36a', scale: 1 },
+};
+
+export const NPCS = {
+  bo: {
+    name: 'Bố Minh', full: 'Trần Quang Minh', role: 'Managing Director, M&A Advisory',
+    bio: 'Hơn 25 năm làm M&A advisory. Tin rằng mọi thương vụ tốt bắt đầu bằng một câu hỏi tốt. Hay dùng ví dụ đời thường để giảng giải.',
+    expertise: ['M&A', 'Valuation', 'Negotiation'], mentor: true,
+    look: { skin: '#f6d6bf', hair: '#2f2a33', hairStyle: 'short', outfit: '#3d4f7c', outfit2: '#f2f2f7', type: 'suit', acc: 'glasses', accColor: '#c9a04e', scale: 1.08 },
+    schedule: { child: ['garden', 'garden', 'bedroom'], uni: 'garden', intern: 'garden', career: 'garden' },
+    pos: { garden: [118, 470], bedroom: [300, 470] },
+    lines: {
+      child: ['Một doanh nghiệp giống như cây táo, con ạ. Ta không chỉ nhìn số táo hôm nay, mà nhìn cái cây sẽ cho bao nhiêu táo trong nhiều năm.', 'Giá là thứ con trả. Giá trị là thứ con nhận được.', 'Bố có thể chỉ đường, nhưng con phải tự bước đi nhé.'],
+      uni: ['Đừng học thuộc công thức DCF. Hãy hỏi: dòng tiền này đến từ đâu, và vì sao nó sẽ tiếp tục?', 'Networking không phải là sưu tầm danh thiếp. Hãy là người mà người khác muốn gặp lại.'],
+      intern: ['Ở ngân hàng, uy tín của con được xây bằng những con số không sai. Kiểm tra lại mọi thứ.', 'Bố không gọi điện xin việc cho con đâu. Và con sẽ cảm ơn bố vì điều đó.'],
+      career: ['Con đã đi xa hơn bố tưởng. Nhưng nhớ nhé: thương vụ tốt nhất đôi khi là thương vụ ta không làm.'],
+    },
+  },
+  me: {
+    name: 'Mẹ Lan', full: 'Nguyễn Hoài Lan', role: 'Partner, Private Equity',
+    bio: 'Chuyên buyout và quản lý danh mục. Luôn hỏi "dòng tiền đâu?" trước khi hỏi "lợi nhuận bao nhiêu?". Đôi khi bất đồng với Bố về cách định giá.',
+    expertise: ['Private Equity', 'LBO', 'Value Creation'], mentor: true,
+    look: { skin: '#fbe0cc', hair: '#3b2730', hairStyle: 'bob', outfit: '#b7a4e0', outfit2: '#fff8ef', type: 'blazer', acc: 'earring', accColor: '#e6c36a', scale: 1.04 },
+    schedule: { child: ['bedroom', 'garden', 'garden'], uni: 'garden', intern: 'garden', career: 'garden' },
+    pos: { garden: [268, 455], bedroom: [92, 470] },
+    lines: {
+      child: ['Lợi nhuận là ý kiến, tiền mặt là sự thật. Mẹ thích sự thật hơn.', 'Muốn biết một tiệm bánh có tốt không, hãy xem khách quen có quay lại không.'],
+      uni: ['Mô hình tài chính đẹp mà giả định sai thì vẫn sai một cách rất đẹp.', 'Mẹ và bố thường bất đồng. Điều đó tốt — con học được cách tự quyết định.'],
+      intern: ['Đừng để ai làm con nghi ngờ con số đúng của mình. Nhưng hãy luôn sẵn sàng bị chứng minh là sai.'],
+      career: ['Ở PE, ta không mua công ty. Ta mua một kế hoạch tạo giá trị — và phải tự thực hiện nó.'],
+    },
+  },
+  hanh: {
+    name: 'Cô Hạnh', full: 'Lê Thị Hạnh', role: 'Chủ Tiệm Bánh Mây Hồng',
+    bio: 'Làm bánh 30 năm. Muốn nghỉ hưu nhưng lo cho hai người thợ đã theo cô suốt 10 năm.',
+    expertise: ['Vận hành tiệm bánh'],
+    look: { skin: '#f9dcc6', hair: '#7a6a6a', hairStyle: 'bun', outfit: '#f6a9bf', outfit2: '#fffdf6', type: 'apron', acc: 'none', scale: 1.02 },
+    schedule: { child: 'bakery', uni: 'bakery', intern: 'bakery', career: 'bakery' },
+    pos: { bakery: [195, 420] },
+    lines: {
+      child: ['Bánh su kem vừa ra lò nè con! Nhưng mà dạo này bột mì lên giá quá...', 'Cô làm bánh giỏi, nhưng sổ sách thì cô chịu.'],
+      uni: ['Tiệm vẫn đông khách lắm con ơi. Cô vẫn nhớ cô bé ngồi đếm bánh ngày nào.'],
+      intern: ['Đi làm ngân hàng rồi hả? Nhớ ăn sáng nhé con!'], career: ['Con giờ là người lớn rồi. Ghé tiệm cô thường nhé.'],
+    },
+  },
+  bao: {
+    name: 'GS. Bảo', full: 'GS. Phạm Quốc Bảo', role: 'Giáo sư Kế toán & Tài chính',
+    bio: 'Từng là CFO trước khi đi dạy. Nổi tiếng nghiêm khắc, chấm điểm theo lập luận chứ không theo đáp số.',
+    expertise: ['Accounting', 'Corporate Finance', 'DCF'], mentor: true,
+    look: { skin: '#f3d2bb', hair: '#bfbcc6', hairStyle: 'short', outfit: '#9fb79a', outfit2: '#fff', type: 'suit', acc: 'glasses', accColor: '#6d5a4a', scale: 1.05 },
+    schedule: { uni: ['campus', 'campus', 'club'], intern: 'campus', career: 'campus' },
+    pos: { campus: [110, 455], club: [300, 470] },
+    lines: {
+      uni: ['Ba báo cáo tài chính là một câu chuyện. Em phải đọc được cốt truyện.', 'Đáp số đúng với lập luận sai vẫn là bài làm sai.'],
+      intern: ['Thầy nghe nói em đang thực tập. Nhớ: mô hình không phải là thực tế.'], career: ['Em quay lại giảng cho sinh viên một buổi nhé?'],
+    },
+  },
+  vy: {
+    name: 'Vy', full: 'Đỗ Tường Vy', role: 'Chủ nhiệm CLB Tài chính',
+    bio: 'Năm cuối, đã nhận offer Investment Banking. Thẳng thắn, hào phóng chia sẻ kinh nghiệm.',
+    expertise: ['Recruiting', 'Valuation'],
+    look: { skin: '#fde2cf', hair: '#24202b', hairStyle: 'ponytail', outfit: '#f4a5a5', outfit2: '#fff', type: 'hoodie', acc: 'none', scale: 0.97 },
+    schedule: { uni: ['club', 'campus', 'club'], intern: 'district', career: null },
+    pos: { club: [130, 470], campus: [285, 470], district: [320, 470], firm: [300, 520] }, endgame: (tl) => !!tl.flags.hired_vy,
+    lines: {
+      uni: ['CLB mình họp tối thứ Năm. Mang theo laptop và tinh thần bị phản biện nhé!', 'Bí quyết phỏng vấn: hiểu vì sao, chứ không chỉ biết cái gì.'],
+      intern: ['Chào đồng nghiệp tương lai! Giờ chị ở tầng 23 rồi.'],
+    },
+  },
+  khoa: {
+    name: 'Khoa', full: 'Bùi Đăng Khoa', role: 'Bạn cùng khoá — đối thủ',
+    bio: 'Thông minh, hiếu thắng, thích công nghệ. Mơ khởi nghiệp. Mối quan hệ với Khoa sẽ theo bạn rất lâu.',
+    expertise: ['Startups', 'Technology'],
+    look: { skin: '#f4d4bc', hair: '#2a2633', hairStyle: 'spiky', outfit: '#8fb3df', outfit2: '#eef4ff', type: 'hoodie', acc: 'none', scale: 0.98 },
+    schedule: { uni: ['campus', 'club', 'campus'], intern: 'district', career: 'office_vc' },
+    pos: { campus: [305, 535], club: [210, 430], district: [80, 520], office_vc: [300, 500], firm: [70, 545] }, endgame: (tl) => !!tl.flags.hired_khoa,
+    lines: {
+      uni: ['Cậu lại đứng nhất bài kiểm tra à? Lần sau tớ sẽ thắng.', 'Startup mới là tương lai, ngân hàng chỉ là ông chú cũ kỹ.'],
+      intern: ['Tớ bỏ thực tập rồi. Đang làm một app AI cho tiệm bánh. Nghe quen không?'],
+      career: ['Không ngờ người ngồi bên kia bàn đàm phán lại là cậu.'],
+    },
+  },
+  victor: {
+    name: 'Victor Lâm', full: 'Victor Lâm Hoàng', role: 'Managing Director, Investment Banking',
+    bio: 'MD khó tính nhất tầng 23. Đòi hỏi tuyệt đối chính xác. Ít khen, nhưng nhớ rõ ai đáng tin.',
+    expertise: ['Sell-side M&A', 'Client coverage'], mentor: true,
+    look: { skin: '#efcfb6', hair: '#1f1d24', hairStyle: 'slick', outfit: '#3a3a48', outfit2: '#f3f3f6', type: 'suit', acc: 'tie', accColor: '#b03a5b', scale: 1.08 },
+    schedule: { intern: 'ibank', career: 'ibank' },
+    pos: { ibank: [300, 440] },
+    lines: {
+      intern: ['Tôi không cần mô hình đẹp. Tôi cần mô hình đúng. Và tôi cần nó trước 8 giờ sáng.', 'Đừng nói "em nghĩ là". Hãy nói "dữ liệu cho thấy".'],
+      career: ['Khách hàng thuê chúng ta vì sự phán đoán, không vì slide đẹp.'],
+    },
+  },
+  duc: {
+    name: 'Đức', full: 'Hà Minh Đức', role: 'Associate, Investment Banking',
+    bio: 'Associate năm 2, đang chạy đua lên VP. Áp lực khiến anh ta đôi khi đi đường tắt.',
+    expertise: ['Modeling', 'Execution'],
+    look: { skin: '#f2d0b8', hair: '#3a2e2a', hairStyle: 'short', outfit: '#7d8597', outfit2: '#fff', type: 'suit', acc: 'none', scale: 1.02 },
+    schedule: { intern: 'ibank', career: 'ibank' },
+    pos: { ibank: [95, 470], firm: [340, 470] }, endgame: (tl) => !!tl.flags.hired_duc,
+    lines: {
+      intern: ['Em gửi file cho anh trước nhé, anh sẽ "trình bày giúp".', 'Ở đây ai cũng mệt. Quen dần đi.'],
+      career: ['Chúng ta từng có hiểu lầm. Hy vọng giờ có thể hợp tác.'],
+    },
+  },
+  mai: {
+    name: 'Mai', full: 'Trịnh Ngọc Mai', role: 'Analyst năm 2 — cựu sinh viên',
+    bio: 'Cựu thành viên CLB Tài chính. Chỉ dẫn tận tình nếu bạn hỏi đúng câu.',
+    expertise: ['Excel', 'Model integrity'],
+    look: { skin: '#fde4d2', hair: '#4b3328', hairStyle: 'long', outfit: '#a9c7a4', outfit2: '#fff', type: 'blouse', acc: 'none', scale: 1 },
+    schedule: { uni: [null, null, 'club'], intern: 'ibank', career: 'ibank' },
+    pos: { ibank: [200, 520], club: [60, 520], firm: [130, 505] }, endgame: (tl) => !!tl.flags.hired_mai,
+    lines: {
+      uni: ['Chị là cựu thành viên CLB, giờ làm Analyst. Hỏi gì cứ hỏi!'],
+      intern: ['Mẹo: luôn có một dòng "check" — Tổng Tài sản trừ Tổng Nguồn vốn phải bằng 0.', 'Màu chữ xanh là input, màu đen là công thức. Đừng bao giờ gõ số cứng vào công thức.'],
+      career: ['Chị chuyển sang làm Corporate Development rồi. Thế giới nhỏ lắm!'],
+    },
+  },
+  ha: {
+    name: 'TS. Thu Hà', full: 'TS. Lê Thu Hà', role: 'Chief Economist',
+    bio: 'Kinh tế trưởng, chuyên chính sách tiền tệ và chu kỳ tín dụng. Ghét những dự báo không có cơ chế giải thích.',
+    expertise: ['Macroeconomics', 'Rates', 'Credit cycles'], mentor: true,
+    look: { skin: '#f7dccb', hair: '#a99bbd', hairStyle: 'bob', outfit: '#f3ead8', outfit2: '#6c5a8e', type: 'blazer', acc: 'glasses', accColor: '#8a7aa8', scale: 1.03 },
+    schedule: { intern: 'district', career: 'district' },
+    pos: { district: [200, 455] },
+    lines: {
+      intern: ['Lãi suất là trọng lực của định giá tài sản. Khi nó tăng, mọi thứ đều nặng hơn.'],
+      career: ['Đừng hỏi "kinh tế sẽ ra sao". Hãy hỏi "nếu kinh tế như thế, thương vụ của mình sẽ ra sao".'],
+    },
+  },
+  ngoc: {
+    name: 'Bà Ngọc', full: 'Bà Lâm Bảo Ngọc', role: 'Người giữ Đại Sảnh Thương Vụ Huyền Thoại',
+    bio: 'Cựu sử gia tài chính. Phân biệt rạch ròi giữa sự thật, diễn giải và giả định.',
+    expertise: ['Deal history', 'Research'],
+    look: { skin: '#f4dccc', hair: '#eeeaf2', hairStyle: 'long', outfit: '#e9cf86', outfit2: '#fff8e6', type: 'robe', acc: 'glasses', accColor: '#c9a04e', scale: 1.04 },
+    schedule: { intern: 'hall', career: 'hall' },
+    pos: { hall: [300, 500] },
+    lines: {
+      intern: ['Mỗi bệ đá ở đây là một thương vụ có thật. Nhưng hãy luôn xem nhãn: Verified Fact, Analyst Interpretation hay Simulation Assumption.'],
+      career: ['Lịch sử không lặp lại, nhưng nó có vần điệu.'],
+    },
+  },
+  phuong: {
+    name: 'Chị Phương', full: 'BS. Đặng Thanh Phương', role: 'Healthcare Investment Specialist',
+    bio: 'Bác sĩ chuyển sang đầu tư y tế. Luôn hỏi "ai trả tiền?" trước khi hỏi "bệnh nhân là ai?".',
+    expertise: ['Healthcare', 'Payer economics'], mentor: true,
+    look: { skin: '#f8dcc8', hair: '#3a2a2e', hairStyle: 'bob', outfit: '#9fc3e6', outfit2: '#ffffff', type: 'blazer', acc: 'earring', accColor: '#c9a04e', scale: 1.03 },
+    schedule: { intern: 'academy', career: 'academy' }, pos: { academy: [95, 470] },
+    lines: { intern: ['Trong y tế, đừng chỉ nhìn doanh thu. Hãy nhìn payer mix và bác sĩ có ở lại hay không.'], career: ['Chuyên môn ngành là thứ khiến khách hàng tin em hơn một bảng tính đẹp.'] },
+  },
+  minhanh: {
+    name: 'Minh Anh', full: 'Lý Minh Anh', role: 'Technology & AI Sector Specialist',
+    bio: 'Cựu kỹ sư machine learning, nay là chuyên gia phân tích ngành công nghệ. Thích nói về chi phí trên mỗi token.',
+    expertise: ['AI', 'SaaS', 'Unit economics'], mentor: true,
+    look: { skin: '#f3d6c0', hair: '#26222c', hairStyle: 'short', outfit: '#b7a4e0', outfit2: '#f5f0ff', type: 'hoodie', acc: 'glasses', accColor: '#5a4a7a', scale: 1.03 },
+    schedule: { intern: 'academy', career: 'academy' }, pos: { academy: [295, 470] },
+    lines: { intern: ['AI không phải phép màu — nó là một dòng chi phí GPU cần được định giá.'], career: ['ARR đẹp chưa đủ. Cho mình xem gross margin và retention.'] },
+  },
+  diep: {
+    name: 'Chị Diệp', full: 'Diệp Bảo Châu', role: 'Partner, Strategy & Transformation Consulting',
+    bio: 'Partner tư vấn 18 năm. Nổi tiếng với câu "Đừng mang cho tôi dữ liệu — mang cho tôi câu trả lời, rồi chứng minh nó." Ghét slide không có "so what".',
+    expertise: ['Commercial Due Diligence', 'Transformation', 'Consulting M&A'], mentor: true,
+    look: { skin: '#f6d9c4', hair: '#2c2430', hairStyle: 'long', outfit: '#6d8fb3', outfit2: '#f6f8ff', type: 'blazer', acc: 'earring', accColor: '#e6c36a', scale: 1.05 },
+    schedule: { career: 'office_cs' }, pos: { office_cs: [290, 455] },
+    lines: { career: ['Bắt đầu bằng giả thuyết, không bắt đầu bằng Excel.', 'Mỗi slide phải trả lời được câu hỏi: "So what?"'] },
+  },
+  ngan: {
+    name: 'Chị Ngân', full: 'Võ Kim Ngân', role: 'Executive Search — Headhunter ngành tài chính',
+    bio: 'Mười năm tuyển dụng cho các quỹ và ngân hàng. Thẳng thắn về đánh đổi khi chuyển ngành: "Không ai mua thành tích cũ của em — họ mua khả năng em học nhanh khoảng trống mới."',
+    expertise: ['Career mobility', 'Interviewing'],
+    look: { skin: '#f7dac6', hair: '#6a3e3a', hairStyle: 'ponytail', outfit: '#e9a7b8', outfit2: '#fff8f2', type: 'blazer', acc: 'earring', accColor: '#e6c36a', scale: 1.03 },
+    schedule: { career: 'district' }, pos: { district: [70, 500] },
+    lines: { career: ['Ngành tài chính nhỏ lắm. Cách em rời đi cũng quan trọng như cách em đến.', 'Mỗi lần chuyển ngành, em đổi một chút cấp bậc lấy một con đường mới.'] },
+  },
+  an: {
+    name: 'Bảo An', full: 'Lê Bảo An', role: 'Associate & Chief of Staff — quỹ của bạn',
+    bio: 'Associate trẻ đầu tiên bạn tuyển. Giỏi, chăm chỉ, đôi khi quá cầu toàn. Cách bạn dẫn dắt An sẽ quyết định người kế nhiệm của bạn.',
+    expertise: ['Modeling', 'Operations'],
+    look: { skin: '#fde2cf', hair: '#3a2a22', hairStyle: 'twin', outfit: '#f2c57c', outfit2: '#fffaf0', type: 'blouse', acc: 'bow', accColor: '#c9a04e', scale: 0.98 },
+    schedule: {}, pos: { firm: [195, 455] }, endgame: () => true,
+    lines: { career: ['Em đã chuẩn bị tài liệu cho buổi gặp LP rồi ạ. Chị xem giúp em phần fee nhé!', 'Em muốn một ngày được như chị — nhưng theo cách của em.'] },
+  },
+  tung: {
+    name: 'Chú Tùng', full: 'Hồ Thanh Tùng', role: 'Chief Investment Officer, Lavender Asset Management',
+    bio: 'Đã đi qua ba cuộc khủng hoảng thị trường. Tin rằng quản lý rủi ro là việc của người quản lý danh mục, không chỉ của phòng rủi ro.',
+    expertise: ['Equity research', 'Portfolio construction', 'Risk management'], mentor: true,
+    look: { skin: '#efcfb6', hair: '#9a9aa6', hairStyle: 'short', outfit: '#7a6a9e', outfit2: '#f6f2ff', type: 'suit', acc: 'glasses', accColor: '#c9a04e', scale: 1.07 },
+    schedule: { career: 'office_im' }, pos: { office_im: [290, 455] },
+    lines: { career: ['Thị trường có thể phi lý lâu hơn khả năng em chịu lỗ. Hãy định cỡ vị thế cho phù hợp.', 'Lợi nhuận không có ý nghĩa nếu không biết em đã chấp nhận bao nhiêu rủi ro.'] },
+  },
+  sophia: {
+    name: 'Sophia Ngô', full: 'Sophia Ngô Thanh', role: 'Partner, Private Equity',
+    bio: 'Từng là đồng nghiệp của Mẹ Lan. Thực dụng, tập trung vào downside trước upside.',
+    expertise: ['LBO', 'Investment Committee'], mentor: true,
+    look: { skin: '#f6d8c3', hair: '#2b2230', hairStyle: 'bun', outfit: '#2f5d62', outfit2: '#f5efe2', type: 'blazer', acc: 'earring', accColor: '#e6c36a', scale: 1.05 },
+    schedule: { career: 'office_pe' }, pos: { office_pe: [290, 450] },
+    lines: { career: ['Ở Investment Committee, câu đầu tiên luôn là: "Chúng ta mất tiền bằng cách nào?"'] },
+  },
+  ken: {
+    name: 'Ken Trịnh', full: 'Ken Trịnh Gia', role: 'General Partner, Venture Capital',
+    bio: 'Cựu founder đã exit. Tin vào power law và con người hơn bảng tính.',
+    expertise: ['Venture Capital', 'Founders'], mentor: true,
+    look: { skin: '#f1cfb4', hair: '#5a3e30', hairStyle: 'spiky', outfit: '#f2c57c', outfit2: '#fff', type: 'hoodie', acc: 'none', scale: 1.04 },
+    schedule: { career: 'office_vc' }, pos: { office_vc: [110, 460] },
+    lines: { career: ['Một khoản đầu tư VC có thể mất 1x. Nhưng khoản thắng phải trả được cho cả quỹ.'] },
+  },
+  hung: {
+    name: 'Anh Hùng', full: 'Vũ Đình Hùng', role: 'Director, Corporate Development',
+    bio: 'Làm M&A nội bộ cho một tập đoàn bán lẻ. Quan tâm đến tích hợp sau sáp nhập hơn là ký kết.',
+    expertise: ['Corporate Development', 'Synergies', 'PMI'], mentor: true,
+    look: { skin: '#efcfb5', hair: '#2c2a2e', hairStyle: 'short', outfit: '#d98fa5', outfit2: '#fff', type: 'suit', acc: 'glasses', accColor: '#4a4a55', scale: 1.06 },
+    schedule: { career: 'office_cd' }, pos: { office_cd: [290, 455] },
+    lines: { career: ['Ký hợp đồng chỉ là bắt đầu. 70% giá trị nằm ở 100 ngày đầu tích hợp.'] },
+  },
+};
+
+export const CHAPTERS = ['child', 'uni', 'intern', 'career'];
+export const CHAPTER_INFO = {
+  child: { name: 'Chương 1 — Nhà Đầu Tư Nhí', stage: 'The Little Investor', ages: '7–10' },
+  uni: { name: 'Chương 2 — Nhà Tài Chính Tương Lai', stage: 'The Future Financier', ages: '18–21' },
+  intern: { name: 'Chương 3 — Thực Tập Sinh Ngân Hàng', stage: 'The Investment Intern', ages: '21–22' },
+  career: { name: 'Chương 4 — Nghề Nghiệp Đầu Tiên', stage: 'The Deal Professional', ages: '22+' },
+};

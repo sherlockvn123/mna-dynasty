@@ -1,0 +1,9 @@
+# Local-only Claude Code settings (may hold machine-specific permissions)
+.claude/settings.local.json
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+*.log
+~$*

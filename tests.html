@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>M&amp;A Dynasty — Tests</title>
+<style>body{font-family:Arial,Helvetica,sans-serif;margin:16px;color:#4a3a52;background:#fffaf0}.ok{color:#3f7a4c}.bad{color:#b03a5b;font-weight:bold}h1{font-size:20px}li{margin:2px 0;font-size:14px}#sum{font-size:18px;font-weight:bold;padding:8px;border-radius:10px;background:#efe9fb}</style></head>
+<body><h1>M&amp;A Dynasty — automated test suite</h1><div id="sum">Running…</div><ul id="out"></ul>
+<script type="module">
+import { getResults, runPending } from './tests/runner.js';
+await import('./tests/finance.test.js');
+await import('./tests/game.test.js');
+await import('./tests/fundsim.test.js');
+await runPending();
+const res = getResults();
+const fail = res.filter((r) => !r.ok);
+document.getElementById('sum').textContent = `${res.length - fail.length}/${res.length} passed` + (fail.length ? ` — ${fail.length} FAILED` : ' ✅');
+document.getElementById('sum').dataset.result = fail.length ? 'fail' : 'pass';
+const out = document.getElementById('out');
+for (const r of [...fail, ...res.filter((x) => x.ok)]) { const li = document.createElement('li'); li.className = r.ok ? 'ok' : 'bad'; li.textContent = `${r.ok ? '✔' : '✘'} [${r.suite}] ${r.name}${r.err ? ' — ' + r.err : ''}`; out.appendChild(li); }
+window.__TEST_RESULTS__ = { total: res.length, failed: fail };
+</script></body></html>

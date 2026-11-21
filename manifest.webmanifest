@@ -1,0 +1,12 @@
+{
+  "name": "M&A Dynasty: The Heiress of Capital",
+  "short_name": "M&A Dynasty",
+  "lang": "vi",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdf3f6",
+  "theme_color": "#f8d6e1",
+  "icons": [{ "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
