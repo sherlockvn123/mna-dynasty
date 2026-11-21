@@ -4,7 +4,13 @@ Game mô phỏng cuộc đời & sự nghiệp tài chính (mobile-first PWA). T
 
 This repository contains the **first playable vertical slice**: childhood → university → investment-bank internship → career selection (IB / PE / VC / Corp Dev) → macro shocks → performance review → New Game+.
 
-## Chạy game
+## Chơi ngay trên web
+
+▶ **https://sherlockvn123.github.io/mna-dynasty/** — chạy trên điện thoại và máy tính, có thể "Thêm vào màn hình chính" như một app (PWA). Bộ test: https://sherlockvn123.github.io/mna-dynasty/tests.html
+
+Bản lưu game nằm trong trình duyệt của từng thiết bị (không đồng bộ giữa các máy). Mọi công ty, số liệu và quỹ đối chiếu trong game là mô phỏng giáo dục (Simulation Assumption), không phải tư vấn đầu tư.
+
+## Chạy game trên máy
 
 Không cần cài đặt gì. Không có dependency, không có build step. Game chạy trên mọi web server tĩnh.
 
